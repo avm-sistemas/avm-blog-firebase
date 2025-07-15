@@ -1,0 +1,9 @@
+// .vscode/settings.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Formatação de código
+  "editor.formatOnSave": true, // Formata ao salvar
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // Corrige erros ESLint ao salvar
+  },
+  "typescript.tsdk": "node_modules/typescript/lib" // Garante que o VS Code use o TypeScript do seu projeto
+}
