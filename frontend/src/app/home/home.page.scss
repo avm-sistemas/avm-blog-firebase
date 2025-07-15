@@ -1,0 +1,73 @@
+/* home.page.scss */
+
+ion-content {
+  --background: var(--ion-color-light); // Exemplo de cor de fundo
+  padding: 16px; // Espaçamento interno
+
+  /* --- CUIDADO COM ESTAS REGRAS QUE PODEM OCULTAR ELEMENTOS --- */
+  /*
+  // Se alguma destas regras estiver presente e aplicada aos contêineres dos botões, eles podem sumir:
+  .hidden-buttons-container {
+    display: none; // OCULTA COMPLETAMENTE
+  }
+  .invisible-buttons-container {
+    visibility: hidden; // TORNA INVISÍVEL
+  }
+  .no-height {
+    height: 0; // OCULTA SE O CONTEÚDO FOR MAIOR
+    overflow: hidden;
+  }
+  .off-screen {
+    position: absolute;
+    left: -9999px; // MOVE PARA FORA DA TELA
+  }
+  */
+}
+
+.custom-button-text {
+  text-decoration: none;
+}
+
+// Estilos para o contêiner dos botões de ação (ex: adicionar, logout)
+.action-buttons {
+  display: flex; /* Para alinhar botões lado a lado */
+  justify-content: flex-end; /* Alinha à direita */
+  gap: 10px; /* Espaçamento entre os botões */
+  margin-bottom: 16px;
+  align-items: center; // Centraliza verticalmente
+  /*
+  // Se este contêiner tiver alguma das propriedades de ocultação acima, os botões somem.
+  */
+}
+
+ion-button {
+  // Estilos gerais para botões na home
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;  
+
+  /* --- CUIDADO COM ESTAS REGRAS NO PRÓPRIO ion-button --- */
+  /*
+  // Se você tiver alguma destas regras diretamente em ion-button, os botões desaparecem:
+  display: none;        // OCULTA
+  opacity: 0;           // TORNA TRANSPARENTE
+  width: 0 !important;  // Reduz a largura a zero
+  height: 0 !important; // Reduz a altura a zero
+  padding: 0 !important; // Remove padding e esconde o texto
+  */
+}
+
+// Estilos específicos para o botão de adicionar post (se houver)
+.add-post-button {
+  --background: var(--ion-color-primary);
+  color: white;
+}
+
+// Estilos para o cabeçalho (apenas exemplo)
+ion-toolbar {
+  --background: var(--ion-color-dark);
+  color: white;
+  ion-title {
+    color: white;
+  }
+}

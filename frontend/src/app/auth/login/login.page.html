@@ -1,0 +1,103 @@
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <div style="padding-top: 70px;"></div>
+    <ion-card>            
+      <ion-card-header>
+        <ion-card-title>ENTRAR</ion-card-title>        
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input
+            label="Email"
+            type="email"
+            placeholder="Seu email"
+            formControlName="email"
+            required
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid &&
+            (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="loginForm.get('email')?.errors?.['required']">Email é obrigatório.</p>
+          <p *ngIf="loginForm.get('email')?.errors?.['email']">Email inválido.</p>
+        </div>
+
+        <ion-item class="ion-margin-top">
+          <ion-input
+            label="Senha"
+            type="password"
+            placeholder="Sua senha"
+            formControlName="password"
+            required
+          ></ion-input>
+        </ion-item>
+
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="loginForm.get('password')?.errors?.['required']">Senha é obrigatória.</p>
+          <p *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            A senha deve ter no mínimo 6 caracteres.
+          </p>
+        </div>
+
+      </ion-card-content>
+      
+        <ion-button
+          expand="block"
+          class="ion-margin-top"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Entrar
+        </ion-button>
+
+        <ion-button expand="block" fill="outline" class="ion-margin-top" (click)="loginWithGoogle()">
+          <ion-icon name="logo-google" slot="start"></ion-icon>
+          Login com Google
+        </ion-button>
+      
+      
+    </ion-card>
+  </form>
+  <div style="padding-top: 20px;"></div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>CRIAR CONTA</ion-card-title>        
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text color="danger" class="ion-text-center ion-margin-top">
+        <p *ngIf="errorMessage">{{ errorMessage }}</p>
+      </ion-text>
+    </ion-card-content>
+    
+    <ion-button fill="clear" routerLink="/register">
+      Registrar-se
+    </ion-button>
+
+    
+
+
+  </ion-card>
+
+
+</ion-content>
+
+<style>
+  .error-message {
+    color: var(--ion-color-danger);
+    font-size: 0.8em;
+    padding-left: 16px;
+    margin-top: 5px;
+  }
+</style>

@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+    
+<div style="padding-top: 70px;"></div>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEditing ? 'Editar Post' : 'Novo Post' }}</ion-title>
+  </ion-toolbar>
+
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Título" label-placement="floating" formControlName="title"></ion-input>
+      </ion-item>
+      <div *ngIf="postForm.get('title')?.invalid && (postForm.get('title')?.dirty || postForm.get('title')?.touched)" class="ion-padding-start ion-text-danger">
+        <p *ngIf="postForm.get('title')?.errors?.['required']">Título é obrigatório.</p>
+        <p *ngIf="postForm.get('title')?.errors?.['maxlength']">Título não pode ter mais de 255 caracteres.</p>
+      </div>
+
+      <ion-item>
+        <ion-textarea label="Conteúdo" label-placement="floating" formControlName="content" rows="10"></ion-textarea>
+      </ion-item>
+      <div *ngIf="postForm.get('content')?.invalid && (postForm.get('content')?.dirty || postForm.get('content')?.touched)" class="ion-padding-start ion-text-danger">
+        <p *ngIf="postForm.get('content')?.errors?.['required']">Conteúdo é obrigatório.</p>
+      </div>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" [disabled]="postForm.invalid">
+      {{ isEditing ? 'Salvar Alterações' : 'Criar Post' }}
+    </ion-button>
+  </form>
+</ion-content>

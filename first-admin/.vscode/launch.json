@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Executar Script do Primeiro Admin",
+            "program": "${workspaceFolder}/setAdmin.js", // Caminho para o seu script
+            "cwd": "${workspaceFolder}",
+            "args": [], // Se seu script não precisar de argumentos de linha de comando
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}
