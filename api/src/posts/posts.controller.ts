@@ -6,7 +6,9 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { MyJwtAuthGuard } from 'src/auth/guards/my-jwt-auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Posts')
 @Controller('posts')
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}

@@ -33,7 +33,7 @@
               "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "scss",            
             "assets": [
               {
                 "glob": "**/*",
@@ -102,6 +102,9 @@
             },
             "ci": {
               "progress": false
+            },
+            "options": {
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

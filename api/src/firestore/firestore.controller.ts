@@ -1,7 +1,9 @@
 import { Controller, Post, Res, HttpStatus, Body, Param } from '@nestjs/common';
 import { Response } from 'express';
 import { FirestoreService } from '../firestore/firestore.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Firestore Utility')
 @Controller('firestore')
 export class FirestoreController {
   constructor(private readonly firestoreService: FirestoreService) {}
